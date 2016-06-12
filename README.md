@@ -18,7 +18,6 @@ $ npm i -D posthtml-import
 |:--------------------:|:-------------------------:|:------------------------:|
 |  Master              | ![travis]                 | ![cover]                 |
 |  Develop             | ![travis-dev]             | ![cover-dev]             |
-|  Release/v1.0.0      | ![travis-rel]             | ![cover-rel]             |
 
 ## Usage
 
@@ -226,32 +225,32 @@ SOFTWARE.
 [node]: https://img.shields.io/node/v/gh-badges.svg?maxAge=2592000
 [node-url]: https://nodejs.org
 
-[deps]: https://david-dm.org/posthtml-plugins/posthtml-import.svg
-[deps-url]: https://david-dm.org/posthtml-plugins/posthtml-import
+[deps]: https://david-dm.org/posthtml/posthtml-import.svg
+[deps-url]: https://david-dm.org/posthtml/posthtml-import
 
-[devdeps]: https://david-dm.org/posthtml-plugins/posthtml-import/dev-status.svg
-[devdeps-url]: https://david-dm.org/posthtml-plugins/posthtml-import#info=devDependencies
+[devdeps]: https://david-dm.org/posthtml/posthtml-import/dev-status.svg
+[devdeps-url]: https://david-dm.org/posthtml/posthtml-import#info=devDependencies
 
 [style]: https://img.shields.io/badge/code%20style-standard-yellow.svg
 [style-url]: http://standardjs.com/
 
-[travis]: http://img.shields.io/travis/posthtml-plugins/posthtml-import.svg
-[travis-url]: https://travis-ci.org/posthtml-plugins/posthtml-import
+[travis]: http://img.shields.io/travis/posthtml/posthtml-import.svg
+[travis-url]: https://travis-ci.org/posthtml/posthtml-import
 
-[travis-rel]: http://img.shields.io/travis/posthtml-plugins/posthtml-import.svg?branch=release/1.0.0
-[travis-rel-url]:https://travis-ci.org/posthtml-plugins/posthtml-import?branch=release/1.0.0
+[travis-rel]: http://img.shields.io/travis/posthtml/posthtml-import.svg?branch=release/1.0.0
+[travis-rel-url]:https://travis-ci.org/posthtml/posthtml-import?branch=release/1.0.0
 
-[travis-dev]: http://img.shields.io/travis/posthtml-plugins/posthtml-import.svg?branch=develop
-[travis-dev-url]: https://travis-ci.org/posthtml-plugins/posthtml-import?branch=develop
+[travis-dev]: http://img.shields.io/travis/posthtml/posthtml-import.svg?branch=develop
+[travis-dev-url]: https://travis-ci.org/posthtml/posthtml-import?branch=develop
 
-[cover]: https://coveralls.io/repos/github/posthtml-plugins/posthtml-import/badge.svg?branch=master
-[cover-url]: https://coveralls.io/github/posthtml-plugins/posthtml-import?branch=master
+[cover]: https://coveralls.io/repos/github/posthtml/posthtml-import/badge.svg?branch=master
+[cover-url]: https://coveralls.io/github/posthtml/posthtml-import?branch=master
 
-[cover-rel]: https://coveralls.io/repos/github/posthtml-plugins/posthtml-import/badge.svg?branch=release<ver>
-[cover-rel-url]: https://coveralls.io/github/posthtml-plugins/posthtml-import?branch=release<ver>
+[cover-rel]: https://coveralls.io/repos/github/posthtml/posthtml-import/badge.svg?branch=release<ver>
+[cover-rel-url]: https://coveralls.io/github/posthtml/posthtml-import?branch=release<ver>
 
-[cover-dev]: https://coveralls.io/repos/github/posthtml-plugins/posthtml-import/badge.svg?branch=develop
-[cover-dev-url]: https://coveralls.io/github/posthtml-plugins/posthtml-import?branch=develop
+[cover-dev]: https://coveralls.io/repos/github/posthtml/posthtml-import/badge.svg?branch=develop
+[cover-dev-url]: https://coveralls.io/github/posthtml/posthtml-import?branch=develop
 
-[license]: https://img.shields.io/github/license/posthtml-plugins/posthtml-import.svg
-[license-url]: https://raw.githubusercontent.com/posthtml-plugins/posthtml-import/master/LICENSE
+[license]: https://img.shields.io/github/license/posthtml/posthtml-import.svg
+[license-url]: https://raw.githubusercontent.com/posthtml/posthtml-import/master/LICENSE
