@@ -15,10 +15,6 @@ exports = module.exports = function (options) {
   options.encoding = options.encoding || 'utf8'
 
   function read (path) {
-    return readFileSync(resolve(path), options.encoding)
-  }
-
-  function readdir (path) {
     return readFileSync(resolve(options.root, path), options.encoding)
   }
 
@@ -51,7 +47,7 @@ exports = module.exports = function (options) {
 
           return node
         } else {
-          node = readdir(node.attrs.src)
+          node = read(node.attrs.src)
 
           node = node.split('\n')
 
@@ -101,7 +97,7 @@ exports = module.exports = function (options) {
 
         return node
       } else {
-        node = readdir(node.trim().split(' ')[1])
+        node = read(node.trim().split(' ')[1])
 
         node = node.split('\n')
 
