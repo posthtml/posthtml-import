@@ -5,7 +5,7 @@
 'use strict'
 
 const test = require('ava')
-const plugin = require('./')
+const plugin = require('../')
 
 const { readFileSync } = require('fs')
 
@@ -14,7 +14,7 @@ function read (path) {
 }
 
 test('Imports should result as expected', (t) => {
-  require('posthtml')([ plugin() ])
+  require('posthtml')([ plugin({root: './fixtures/imports'}) ])
     .process(read('./fixtures/index.html'))
     .then((result) => {
       t.is(result.html, read('./expect/index.html'))

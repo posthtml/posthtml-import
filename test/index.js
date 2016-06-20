@@ -1,20 +1,17 @@
 'use strict'
 
-const { readFileSync, writeFile } = require('fs')
+const { readFileSync, writeFileSync } = require('fs')
 
-function read (path, file) {
+function read (path) {
   return readFileSync(path, 'utf8')
 }
 
-function write (path, file) {
-  return writeFile(path, file, 'utf8', (err, data) => {
-    if (err) throw err
-    return data
-  })
+function write (path, result) {
+  return writeFileSync(path, result)
 }
 
 const posthtml = require('posthtml')
-const plugin = require('./')
+const plugin = require('../')
 
 posthtml([ plugin({root: './fixtures/imports'}) ])
   .process(read('./fixtures/index.html'))
