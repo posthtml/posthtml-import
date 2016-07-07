@@ -1,20 +1,24 @@
+// ------------------------------------
+// #POSTHTML - IMPORT - TEST
+// ------------------------------------
+
 'use strict'
 
-const { readFileSync, writeFileSync } = require('fs')
+const test = require('ava')
 
-function read (path) {
-  return readFileSync(path, 'utf8')
-}
+const { join } = require('path')
+const { readFileSync } = require('fs')
 
-function write (path, result) {
-  return writeFileSync(path, result)
-}
+const fixtures = (file) => readFileSync(join(__dirname, 'fixtures', file), 'utf8')
+const expected = (file) => readFileSync(join(__dirname, 'expected', file), 'utf8')
 
 const posthtml = require('posthtml')
-const plugin = require('../')
+const plugin = require('..')
 
-posthtml([ plugin({root: './fixtures/imports'}) ])
-  .process(read('./fixtures/index.html'))
-  .then((result) => {
-    write('./fixtures/index.result.html', result.html)
-  })
+test('Imports should result as expected', (t) => {
+  posthtml([ plugin({root: './fixtures/imports'}) ])
+    .process(fixtures('./fixtures/index.html'))
+    .then((result) => {
+      t.is(expected('./expect/index.html'), result.html)
+    })
+})
