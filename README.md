@@ -1,34 +1,32 @@
 [![NPM][npm]][npm-url]
-[![Node][node]][node-url]
-[![Dependencies][deps]][deps-url]
-[![DevDependencies][devdeps]][devdeps-url]
+[![Deps][deps]][deps-url]
+[![Tests][travis]][travis-url]
+[![Coverage][cover]][cover-url]
 [![Standard Code Style][style]][style-url]
 
-# PostHTML Import <img align="right" width="200" height="200" title="PostHTML logo" src="http://posthtml.github.io/posthtml/logo.svg">
+<div align="center">
+  <img width="220" height="150" title="PostHTML" src="http://posthtml.github.io/posthtml/logo.svg">
+  <h1>Import Plugin</h1>
+</div>
 
-## Install
+<h2 align="center">Install</h2>
 
 ```bash
-$ npm i -D posthtml-import
+npm i -D posthtml-import
 ```
 
-## Status
+<h2 align="center">Usage</h2>
 
-| Branch               | Build                     | Coverage                 |
-|:--------------------:|:-------------------------:|:------------------------:|
-|  Master              | ![travis]                 | ![cover]                 |
-|  Develop             | ![travis-dev]             | ![cover-dev]             |
+## Options
 
-## Usage
+**root:** Set base directory, defaults to ```__dirname ```
 
-Use the import tag
+**encoding:** Set file encoding, defaults to ``` utf8 ```
+
 ```html
 <import src="file.html">
 ```
-or @-rule syntax
-```css
-@import file.html
-```
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -36,19 +34,7 @@ or @-rule syntax
     <import src="file.html">
   </head>
   <body>
-    <import src="./path/to/file.html">
-  </body>
-</html>
-```
-
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    @import file.html
-  </head>
-  <body>
-    @import ./path/to/file.html
+    <import src="/path/to/file.html">
   </body>
 </html>
 ```
@@ -83,27 +69,23 @@ detection and there could be only one import statement per tag.
 </div>
 ```
 
-## Options
+<h2 align="center">Example</h2>
 
-**root:** Set base directory, defaults to ```__dirname ```
-
-**encoding:** Set file encoding, defaults to ``` utf8 ```
-
-## Example
 ```js
-'use strict'
+const { readFileSync } = require('fs')
 
 const posthtml = require('posthtml')
-
 const imports  = require('posthtml-import')
 
-const index = require('fs').readFileSync('./index.html', 'utf8')
+const html = readFileSync('./index.html', 'utf8')
 
-posthtml([ imports({root: './your/html/imports'}) ])
-  .process(index)
-  .then((result) => require('fs').writeFileSync('./result.html', result.html))
+posthtml([ imports({root: './path/to/imports'}) ])
+  .process(html)
+  .then((result) => console.log(result.html))
 ```
+
 **index.html**
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -113,7 +95,7 @@ posthtml([ imports({root: './your/html/imports'}) ])
   </head>
   <body>
     <nav>
-      @import nav.html
+      <import src="nav.html">
     </nav>
     <header>
       <import src="header.html">
@@ -122,11 +104,12 @@ posthtml([ imports({root: './your/html/imports'}) ])
       <import src="main.html">
     </main>
     <footer>
-     @import footer.html
+      <import src="footer.html">
     </footer>
   </body>
 </html>
 ```
+
 **nav.html**
 ```html
 <ul class="nav">
@@ -141,23 +124,28 @@ posthtml([ imports({root: './your/html/imports'}) ])
   </li>
 </ul>
 ```
+
 **header.html**
 ```html
 <h1>Hello World</h1>
 ```
+
 **main.html**
 ```html
 <section class="intro">...</section>
 <section class="about">...</section>
 <section class="outro">...</section>
 ```
+
 **footer.html**
 ```html
 <div class="col-md-3">...</div>
 <div class="col-md-3">...</div>
 <div class="col-md-3">...</div>
 ```
+
 **result.html**
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -195,11 +183,12 @@ posthtml([ imports({root: './your/html/imports'}) ])
   </body>
 </html>
 ```
-## LICENSE [![MIT][license]][license-url]
+
+<h2 align="center">LICENSE</h2>
 
 > MIT License (MIT)
 
->Copyright (c) Michael Ciniawsky
+> Copyright (c) PostHTML Michael Ciniawsky <michael.ciniawsky@gmail.com>
 
 > Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -222,14 +211,8 @@ SOFTWARE.
 [npm]: https://img.shields.io/npm/v/posthtml-import.svg
 [npm-url]: https://npmjs.com/package/posthtml-import
 
-[node]: https://img.shields.io/node/v/gh-badges.svg?maxAge=2592000
-[node-url]: https://nodejs.org
-
 [deps]: https://david-dm.org/posthtml/posthtml-import.svg
 [deps-url]: https://david-dm.org/posthtml/posthtml-import
-
-[devdeps]: https://david-dm.org/posthtml/posthtml-import/dev-status.svg
-[devdeps-url]: https://david-dm.org/posthtml/posthtml-import#info=devDependencies
 
 [style]: https://img.shields.io/badge/code%20style-standard-yellow.svg
 [style-url]: http://standardjs.com/
@@ -237,20 +220,5 @@ SOFTWARE.
 [travis]: http://img.shields.io/travis/posthtml/posthtml-import.svg
 [travis-url]: https://travis-ci.org/posthtml/posthtml-import
 
-[travis-rel]: http://img.shields.io/travis/posthtml/posthtml-import.svg?branch=release/1.0.0
-[travis-rel-url]:https://travis-ci.org/posthtml/posthtml-import?branch=release/1.0.0
-
-[travis-dev]: http://img.shields.io/travis/posthtml/posthtml-import.svg?branch=develop
-[travis-dev-url]: https://travis-ci.org/posthtml/posthtml-import?branch=develop
-
 [cover]: https://coveralls.io/repos/github/posthtml/posthtml-import/badge.svg?branch=master
 [cover-url]: https://coveralls.io/github/posthtml/posthtml-import?branch=master
-
-[cover-rel]: https://coveralls.io/repos/github/posthtml/posthtml-import/badge.svg?branch=release<ver>
-[cover-rel-url]: https://coveralls.io/github/posthtml/posthtml-import?branch=release<ver>
-
-[cover-dev]: https://coveralls.io/repos/github/posthtml/posthtml-import/badge.svg?branch=develop
-[cover-dev-url]: https://coveralls.io/github/posthtml/posthtml-import?branch=develop
-
-[license]: https://img.shields.io/github/license/posthtml/posthtml-import.svg
-[license-url]: https://raw.githubusercontent.com/posthtml/posthtml-import/master/LICENSE
