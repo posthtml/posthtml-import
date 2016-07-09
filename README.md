@@ -17,9 +17,9 @@ npm i -D posthtml-import
 
 <h2 align="center">Usage</h2>
 
-## Options
+### Options
 
-**root:** Set base directory, defaults to ```__dirname ```
+**root:** Set base directory, defaults to ``` process.cwd() ```
 
 **encoding:** Set file encoding, defaults to ``` utf8 ```
 
